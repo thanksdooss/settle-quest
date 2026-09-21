@@ -1,0 +1,77 @@
+id: mobile-phone
+order: 3
+title:
+  ko: 휴대전화 개통
+  en: Mobile Phone Subscription
+  vi: Đăng ký điện thoại di động
+summary:
+  ko: 여권만으로도 선불 요금제는 개통할 수 있습니다. 후불·알뜰폰은 외국인등록증이 필요합니다. 그래서 외국인등록이 늦어지면 본인확인이 막힙니다.
+  en: A prepaid plan needs only your passport. Postpaid and MVNO plans need your ARC, which is why a delayed registration blocks identity verification.
+  vi: Gói trả trước chỉ cần hộ chiếu. Gói trả sau và MVNO cần thẻ ARC, nên chậm đăng ký sẽ khó xác thực danh tính.
+terms:
+  - ko: 선불 요금제
+    en: Prepaid plan
+    vi: Gói trả trước
+  - ko: 후불 요금제
+    en: Postpaid plan
+    vi: Gói trả sau
+  - ko: 알뜰폰
+    en: MVNO (budget carrier)
+    vi: Nhà mạng giá rẻ (MVNO)
+applies_to:
+  visa: [D-2, D-4]
+  agency: [이동통신사 대리점]
+requires: []
+requires_soft: [alien-registration]
+requires_note:
+  ko: 선불 요금제는 외국인등록 전에도 가능합니다. 후불·알뜰폰만 외국인등록증이 필요합니다.
+  en: Prepaid works before registration. Only postpaid and MVNO need the ARC.
+  vi: Trả trước dùng được trước khi đăng ký. Chỉ trả sau và MVNO mới cần ARC.
+steps:
+  - ko: 요금제 종류를 고릅니다. 단기 체류면 선불, 장기 체류면 후불이나 알뜰폰이 일반적입니다.
+    en: Choose a plan type. Prepaid suits short stays; postpaid or MVNO suit long stays.
+    vi: Chọn loại gói. Ở ngắn hạn dùng trả trước; ở lâu dùng trả sau hoặc MVNO.
+  - ko: 선불은 유심(USIM)을 구매해 개통합니다. 후불은 SKT·KT·LG U+ 대리점을 방문합니다. 알뜰폰은 통신사 사이트에서 온라인 개통합니다.
+    en: Prepaid is activated by buying a USIM. Postpaid is done at an SKT, KT or LG U+ store. MVNO is activated online.
+    vi: Trả trước thì mua USIM. Trả sau thì đến cửa hàng SKT, KT hoặc LG U+. MVNO thì đăng ký trực tuyến.
+  - ko: 통신사마다 필요한 서류가 다를 수 있으므로 가입 전에 해당 통신사에 확인합니다.
+    en: Required documents differ by carrier, so confirm with the carrier before signing up.
+    vi: Giấy tờ yêu cầu khác nhau theo nhà mạng, hãy hỏi trước khi đăng ký.
+documents:
+  - ko: 선불 요금제 — 여권
+    en: Prepaid — passport
+    vi: Trả trước — hộ chiếu
+  - ko: 후불 요금제 — 외국인등록증, 여권
+    en: Postpaid — ARC and passport
+    vi: Trả sau — thẻ ARC và hộ chiếu
+  - ko: 알뜰폰 — 외국인등록증, 여권
+    en: MVNO — ARC and passport
+    vi: MVNO — thẻ ARC và hộ chiếu
+cautions:
+  - ko: 미성년자는 법정대리인의 동의가 필요하고, 신분증·가족증명서류·동의서를 추가로 요구받을 수 있습니다.
+    en: Minors need a legal guardian's consent and may be asked for the guardian's ID, family documents and a consent form.
+    vi: Người chưa thành niên cần sự đồng ý của người giám hộ và có thể phải nộp thêm giấy tờ.
+  - ko: 알뜰폰은 통신사에 따라 개통이 제한될 수 있고 외국어 상담이 제한적입니다.
+    en: Some MVNOs restrict foreign subscribers and offer limited foreign-language support.
+    vi: Một số MVNO hạn chế người nước ngoài và ít hỗ trợ ngoại ngữ.
+contacts:
+  - ko: SKT 외국어 상담 080-011-6000 (영어·중국어·일본어)
+    en: SKT foreign-language support 080-011-6000 (EN/ZH/JA)
+    vi: Hỗ trợ ngoại ngữ SKT 080-011-6000 (EN/ZH/JA)
+  - ko: KT 외국인 전담팀 02-2190-1180 (영어·중국어·일본어)
+    en: KT foreigner desk 02-2190-1180 (EN/ZH/JA)
+    vi: Bộ phận người nước ngoài KT 02-2190-1180 (EN/ZH/JA)
+  - ko: LG U+ 1544-0010 (영어)
+    en: LG U+ 1544-0010 (EN)
+    vi: LG U+ 1544-0010 (EN)
+sources:
+  - id: easylaw-phone
+    publisher: 법제처 찾기쉬운 생활법령정보
+    title: 외국인유학생 > 국내 생활 > 통신 및 우편 > 휴대전화 등 가입
+    url: https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=2853&ccfNo=3&cciNo=4&cnpClsNo=1
+    source_updated_on: null
+    cites: 교육부 국립국제교육원 『외국인유학생 가이드북』 2025.12
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:50552e0d72519a82003bcfef36d97394

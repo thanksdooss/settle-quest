@@ -1,0 +1,107 @@
+{
+  "app": {
+    "name": "Settle Quest",
+    "tagline": "Settlement steps for international students at a regional university"
+  },
+  "legal": {
+    "short": "Administrative information only. This has no legal force.",
+    "long": "This service organises publicly available government information. It has no legal force and does not replace a decision about your own situation. Confirm with the responsible office or the Immigration Contact Center (1345) before you apply."
+  },
+  "nav": {
+    "home": "Home",
+    "quests": "Steps",
+    "documents": "Documents",
+    "support": "Support desks",
+    "freshness": "Information freshness"
+  },
+  "onboarding": {
+    "title": "Three things first",
+    "why": "Which steps you need and when they are due depend on your nationality, status and entry date. What you enter stays on this device and is never sent to a server.",
+    "nationality": "Nationality",
+    "visa": "Status of stay",
+    "entryDate": "Date of entry",
+    "registrationDate": "Date of alien registration (if you know it)",
+    "registrationHint": "Used to work out your health insurance start date. It is fine to leave this empty.",
+    "submit": "Build my list",
+    "nationalityPlaceholder": "e.g. Viet Nam"
+  },
+  "quest": {
+    "listTitle": "My settlement steps",
+    "next": "Do this next",
+    "available": "Ready to do",
+    "blocked": "Something comes first",
+    "done": "Done",
+    "blockedBy": "Finish this first",
+    "softNote": "Doing this first gives you more options",
+    "deadline": "Due",
+    "daysLeft": "{days} days left",
+    "overdue": "{days} days overdue",
+    "noDeadline": "No fixed deadline",
+    "steps": "Steps",
+    "documents": "Documents you need",
+    "cautions": "Watch out",
+    "contacts": "Who to call",
+    "terms": "Administrative terms",
+    "markDone": "Mark as done",
+    "markUndone": "Mark as not done",
+    "empty": "No steps apply to you.",
+    "progress": "{done} of {total} done"
+  },
+  "freshness": {
+    "verified": "Checked",
+    "aging": "Checked a while ago",
+    "stale": "Needs checking",
+    "changed": "Source changed",
+    "checkedOn": "Checked {date}",
+    "sourceUpdatedOn": "Source last updated {date}",
+    "sourceUpdatedUnknown": "Source states no update date",
+    "nextCheck": "Next check {date}",
+    "warning": "This guidance is past its review date. Confirm directly with the office.",
+    "changedWarning": "The source page has changed. Do not rely on this guidance until a person has reviewed it.",
+    "sources": "Sources",
+    "dashboardTitle": "Information freshness",
+    "coverage": "Sources checked within 90 days",
+    "coverageWhy": "This number shows how current the product actually is. When it is low, it is shown low.",
+    "builtOn": "Rule bundle built {date}"
+  },
+  "documents": {
+    "title": "Document helper",
+    "why": "Reads the machine-readable zone (MRZ) of your passport and fills the matching fields of Korean forms. The image is processed on this device and never leaves it.",
+    "pick": "Choose a passport photo",
+    "scanning": "Reading…",
+    "failed": "Could not read the MRZ. Please type the values below.",
+    "verified": "Verified by check digit",
+    "unverified": "Not verified — please check",
+    "suggestions": "It may have been read as",
+    "applySuggestion": "Use this value",
+    "rawLines": "What was read",
+    "fields": {
+      "surname": "Surname / 성 (영문)",
+      "givenNames": "Given names / 이름 (영문)",
+      "passportNumber": "Passport No. / 여권번호",
+      "nationality": "Nationality / 국적",
+      "birthDate": "Date of birth / 생년월일",
+      "sex": "Sex / 성별",
+      "expiryDate": "Date of expiry / 여권 만료일",
+      "koreanName": "Name in Korean / 한글 성명"
+    },
+    "koreanNameHint": "The Korean spelling is not generated for you. A wrong transliteration gets forms rejected, so please type it yourself.",
+    "save": "Save on this device",
+    "saved": "Saved",
+    "export": "Export (JSON)",
+    "clear": "Delete saved values",
+    "clearConfirm": "This deletes everything saved on this device. Continue?",
+    "storageNote": "Saved values live only in this browser. Nothing is stored on a server."
+  },
+  "support": {
+    "title": "Public support desks",
+    "why": "This service does not broker professionals or take referral fees. It only organises publicly available information about public desks.",
+    "phone": "Phone"
+  },
+  "common": {
+    "back": "Back",
+    "language": "Language",
+    "reset": "Enter profile again",
+    "learnMore": "Details"
+  }
+}

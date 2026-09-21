@@ -1,0 +1,105 @@
+id: alien-registration
+order: 1
+title:
+  ko: 외국인등록
+  en: Alien Registration
+  vi: Đăng ký người nước ngoài
+summary:
+  ko: 90일을 넘겨 머무르려면 입국일부터 90일 안에 외국인등록을 해야 합니다. 외국인등록증(ARC)이 나와야 은행·통신·건강보험이 풀립니다.
+  en: If you will stay longer than 90 days you must register within 90 days of entry. Most other tasks unlock only after your ARC is issued.
+  vi: Nếu ở lại quá 90 ngày, bạn phải đăng ký trong vòng 90 ngày kể từ ngày nhập cảnh. Có thẻ ARC rồi mới mở được ngân hàng, điện thoại, bảo hiểm.
+terms:
+  - ko: 외국인등록증
+    en: Alien Registration Card (ARC)
+    vi: Thẻ đăng ký người nước ngoài
+  - ko: 지방출입국·외국인관서
+    en: Local immigration office
+    vi: Văn phòng xuất nhập cảnh địa phương
+applies_to:
+  visa: [D-2, D-4]
+  stay_over_days: 90
+  agency: [지방출입국·외국인관서]
+requires: []
+deadline:
+  from: entry_date
+  days: 90
+  note:
+    ko: 체류자격 부여·변경 허가를 받은 경우에는 그 허가를 받는 때 즉시 등록합니다.
+    en: If you receive a change or grant of status, you register at that moment instead.
+    vi: Nếu được cấp hoặc đổi tư cách lưu trú, bạn đăng ký ngay tại thời điểm đó.
+steps:
+  - ko: 관할 출입국·외국인관서 방문 예약을 잡습니다.
+    en: Book a visit at the immigration office that covers your address.
+    vi: Đặt lịch hẹn tại văn phòng xuất nhập cảnh quản lý nơi bạn ở.
+  - ko: 공통 서류와 체류자격별 추가 서류를 준비합니다. 유학(D-2)은 재학증명서가 추가됩니다.
+    en: Prepare the common documents plus the extra one for your status. D-2 needs a certificate of enrolment.
+    vi: Chuẩn bị giấy tờ chung và giấy tờ riêng theo tư cách. D-2 cần giấy xác nhận đang học.
+  - ko: 신청서를 제출하고 수수료를 냅니다.
+    en: Submit the application and pay the fee.
+    vi: Nộp đơn và đóng lệ phí.
+  - ko: 외국인등록증을 수령합니다. 주소지 관할 관서에서 발급합니다.
+    en: Collect the ARC. It is issued by the office covering your address.
+    vi: Nhận thẻ ARC tại văn phòng quản lý nơi bạn ở.
+documents:
+  - ko: 여권 (인적사항면·비자면 사본 각 1부 포함)
+    en: Passport (with one copy each of the data page and visa page)
+    vi: Hộ chiếu (kèm bản sao trang thông tin và trang visa)
+  - ko: 신청서
+    en: Application form
+    vi: Đơn đăng ký
+  - ko: 컬러사진 1매 (3.5cm × 4.5cm)
+    en: One colour photo (3.5cm × 4.5cm)
+    vi: Một ảnh màu (3,5cm × 4,5cm)
+  - ko: 수수료
+    en: Fee
+    vi: Lệ phí
+  - ko: 체류지 입증서류 (임대차계약서, 숙소제공확인서, 공공요금 납부영수증 등)
+    en: Proof of residence (lease, accommodation confirmation, utility bill, etc.)
+    vi: Giấy tờ chứng minh nơi ở (hợp đồng thuê nhà, xác nhận ký túc xá, hóa đơn tiện ích…)
+  - ko: 유학(D-2)인 경우 재학증명서
+    en: Certificate of enrolment, if your status is D-2
+    vi: Giấy xác nhận đang học, nếu tư cách là D-2
+    condition: { visa: [D-2] }
+  - ko: 일반연수(D-4)인 경우 어학원·학교 재학증명서 또는 연수기관 설립 관련 서류
+    en: For D-4, a certificate of enrolment or documents on the training institution
+    vi: Với D-4, giấy xác nhận đang học hoặc giấy tờ của cơ sở đào tạo
+    condition: { visa: [D-4] }
+cautions:
+  - ko: 제출서류의 유효기간은 발급일로부터 3개월입니다.
+    en: Submitted documents are valid for three months from their issue date.
+    vi: Giấy tờ nộp có giá trị trong ba tháng kể từ ngày cấp.
+  - ko: 심사 과정에서 필요하다고 인정되면 첨부서류가 더해지거나 빠질 수 있습니다. 인터뷰에서 "지점마다 요구 서류가 달랐다"는 말이 나온 이유입니다.
+    en: The office may add or drop documents during screening. This is why students report different requirements at different counters.
+    vi: Cơ quan có thể thêm hoặc bớt giấy tờ khi xét duyệt. Vì vậy mỗi nơi có thể yêu cầu khác nhau.
+sources:
+  - id: hikorea-176
+    publisher: 법무부 하이코리아
+    title: 외국인등록 대상 및 시기
+    url: https://www.hikorea.go.kr/info/InfoDatail.pt?CAT_SEQ=176&PARENT_ID=139
+    source_updated_on: 2021-04-13
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:52976c3aefa8ade7b32822889c8be4a2
+  - id: hikorea-177
+    publisher: 법무부 하이코리아
+    title: 외국인등록시 제출서류
+    url: https://www.hikorea.go.kr/info/InfoDatail.pt?CAT_SEQ=177&PARENT_ID=139
+    source_updated_on: 2013-01-01
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    note:
+      ko: 이 페이지는 원문에 "작성일 2013.01.01"로 표시되어 있습니다. 실제 창구 요구와 다를 수 있으니 방문 전 1345로 확인하십시오.
+      en: The page itself states it was written on 2013-01-01. Confirm with 1345 before visiting.
+      vi: Trang này ghi ngày soạn là 01/01/2013. Hãy gọi 1345 xác nhận trước khi đi.
+    content_hash: sha256:8854b8b50d258c8b7ddb31100527ead1
+  - id: hikorea-178
+    publisher: 법무부 하이코리아
+    title: 외국인등록증 발급/재발급/교부
+    url: https://www.hikorea.go.kr/info/InfoDatail.pt?CAT_SEQ=178&PARENT_ID=139
+    source_updated_on: 2021-04-13
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:a113c8b1d15390bd58d8b894983dc0c2

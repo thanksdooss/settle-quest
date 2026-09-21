@@ -1,0 +1,26 @@
+name: 테스트와 빌드
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: 규칙 검증
+        run: npm run rules:build
+      - name: 단위 테스트
+        run: npm test
+      - name: 타입 검사와 빌드
+        run: npm run build
+      - name: 비공개 정보 검사
+        env:
+          PRIVACY_TERMS: ${{ secrets.PRIVACY_TERMS }}
+        run: npm run privacy

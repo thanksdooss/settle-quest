@@ -1,0 +1,78 @@
+id: arc-reissue
+order: 7
+title:
+  ko: 외국인등록증 재발급 · 분실 신고
+  en: ARC Reissue and Loss Report
+  vi: Cấp lại thẻ ARC và khai báo mất
+summary:
+  ko: 잃어버리거나 헐었거나 성명·성별·생년월일·국적이 바뀌면 재발급을 받습니다. 등록사항이 바뀐 경우에는 사유 발생일부터 15일 이내에 신청합니다.
+  en: Reissue applies if the card is lost, damaged, or if your name, sex, date of birth or nationality changed. For changes you must apply within 15 days.
+  vi: Cấp lại khi mất, hỏng, hoặc khi thay đổi họ tên, giới tính, ngày sinh, quốc tịch. Với thay đổi, phải nộp trong 15 ngày.
+terms:
+  - ko: 재발급
+    en: Reissue
+    vi: Cấp lại
+  - ko: 외국인등록사항 변경신고
+    en: Report of change in registration details
+    vi: Khai báo thay đổi thông tin đăng ký
+applies_to:
+  visa: [D-2, D-4]
+  requires_arc: true
+  agency: [지방출입국·외국인관서]
+requires: [alien-registration]
+deadline:
+  from: change_date
+  days: 15
+  note:
+    ko: 성명·성별·생년월일·국적이 바뀐 경우에만 15일 기한이 적용됩니다. 분실·훼손은 기한 규정이 따로 없습니다.
+    en: The 15-day deadline applies to changes of name, sex, date of birth or nationality. Loss or damage has no separate deadline.
+    vi: Hạn 15 ngày chỉ áp dụng khi đổi họ tên, giới tính, ngày sinh, quốc tịch.
+steps:
+  - ko: 분실한 경우 하이코리아에서 등록증 분실 신고를 할 수 있습니다.
+    en: If the card is lost, you can file a loss report on HiKorea.
+    vi: Nếu mất thẻ, có thể khai báo mất trên HiKorea.
+  - ko: 주소지 관할 출입국·외국인관서에 신청서와 서류를 제출합니다.
+    en: Submit the application and documents at the immigration office for your address.
+    vi: Nộp đơn và giấy tờ tại văn phòng xuất nhập cảnh nơi bạn ở.
+documents:
+  - ko: 여권
+    en: Passport
+    vi: Hộ chiếu
+  - ko: 신청서
+    en: Application form
+    vi: Đơn xin
+  - ko: 신청사유를 소명하는 자료 (분실한 경우)
+    en: Evidence explaining the reason, if lost
+    vi: Giấy tờ giải trình lý do, nếu bị mất
+  - ko: 컬러사진 1매 (3.5cm × 4.5cm) — 이전 사진이 6개월 이상 지난 경우
+    en: One colour photo (3.5cm × 4.5cm) if the previous photo is over six months old
+    vi: Một ảnh màu (3,5cm × 4,5cm) nếu ảnh cũ đã quá sáu tháng
+  - ko: 구 외국인등록증 (훼손·기재란 부족·변경신고의 경우)
+    en: The old ARC, if damaged, full, or being updated
+    vi: Thẻ ARC cũ, nếu hỏng, hết chỗ ghi hoặc khi cập nhật
+  - ko: 수수료
+    en: Fee
+    vi: Lệ phí
+cautions:
+  - ko: 외국인등록사항이 바뀐 날부터 15일 안에 신고하지 않으면 출입국관리법 제35조 위반으로 과태료가 부과됩니다.
+    en: Not reporting a change within 15 days violates Article 35 of the Immigration Act and brings an administrative fine.
+    vi: Không khai báo thay đổi trong 15 ngày là vi phạm Điều 35 và bị phạt hành chính.
+sources:
+  - id: hikorea-178b
+    publisher: 법무부 하이코리아
+    title: 외국인등록증 발급/재발급/교부
+    url: https://www.hikorea.go.kr/info/InfoDatail.pt?CAT_SEQ=178&PARENT_ID=139
+    source_updated_on: 2021-04-13
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:a113c8b1d15390bd58d8b894983dc0c2
+  - id: hikorea-196
+    publisher: 법무부 하이코리아
+    title: 외국인등록사항 변경 신고의무
+    url: https://www.hikorea.go.kr/info/InfoDatail.pt?CAT_SEQ=196&PARENT_ID=146
+    source_updated_on: 2021-04-09
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:bd525d39c336001da7f4bb06066d3dd3

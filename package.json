@@ -1,0 +1,37 @@
+{
+  "name": "settle-quest",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run rules:build && vite",
+    "build": "npm run rules:build && vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "rules:build": "node scripts/build-rules.mjs",
+    "rules:check": "node scripts/check-sources.mjs",
+    "rules:coverage": "node scripts/coverage.mjs",
+    "test": "npm run rules:build && vitest run",
+    "test:watch": "npm run rules:build && vitest",
+    "e2e": "playwright test",
+    "privacy": "node scripts/privacy-check.mjs dist"
+  },
+  "dependencies": {
+    "tesseract.js": "^6.0.1",
+    "vue": "^3.5.42",
+    "vue-i18n": "^11.1.14",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "js-yaml": "^4.1.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vite-plugin-pwa": "^1.0.3",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.3.11"
+  }
+}

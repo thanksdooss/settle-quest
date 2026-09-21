@@ -1,0 +1,84 @@
+id: part-time-work
+order: 6
+title:
+  ko: 시간제 취업 허가 (아르바이트)
+  en: Part-time Work Permit
+  vi: Giấy phép làm thêm bán thời gian
+summary:
+  ko: 아르바이트를 하려면 미리 체류자격 외 활동허가를 받아야 합니다. 허가 없이 일하면 3년 이하의 징역 또는 3천만 원 이하의 벌금, 강제퇴거까지 가능합니다.
+  en: You must obtain permission for activities outside your status before working. Working without it can mean up to three years' imprisonment or a KRW 30 million fine, and deportation.
+  vi: Phải xin phép hoạt động ngoài tư cách lưu trú trước khi làm thêm. Làm chui có thể bị phạt tù đến 3 năm hoặc phạt 30 triệu won và bị trục xuất.
+terms:
+  - ko: 체류자격 외 활동허가
+    en: Permission for activities outside the status of stay
+    vi: Giấy phép hoạt động ngoài tư cách lưu trú
+  - ko: 시간제 취업 (S-3)
+    en: Part-time employment (S-3)
+    vi: Làm thêm bán thời gian (S-3)
+  - ko: TOPIK
+    en: Test of Proficiency in Korean (TOPIK)
+    vi: Kỳ thi năng lực tiếng Hàn (TOPIK)
+applies_to:
+  visa: [D-2, D-4]
+  agency: [지방출입국·외국인관서]
+requires: [alien-registration]
+deadline:
+  from: before_activity
+  days: null
+  note:
+    ko: 기한이 아니라 순서의 문제입니다. 반드시 일을 시작하기 전에 허가를 받아야 합니다.
+    en: This is about order, not a deadline. The permit must be granted before you start working.
+    vi: Đây là thứ tự, không phải hạn chót. Phải có giấy phép trước khi bắt đầu làm.
+steps:
+  - ko: 한국어 능력 기준을 확인합니다. 전문학사·학사 1~2학년은 TOPIK 3급, 학사 3~4학년은 4급이 기준입니다.
+    en: Check the Korean proficiency threshold. TOPIK level 3 for associate and 1st–2nd year bachelor students, level 4 for 3rd–4th year.
+    vi: Kiểm tra yêu cầu tiếng Hàn. TOPIK cấp 3 cho cao đẳng và năm 1–2 đại học, cấp 4 cho năm 3–4.
+  - ko: 학교 유학생 담당자의 확인을 받습니다.
+    en: Get confirmation from your school's international student officer.
+    vi: Xin xác nhận của cán bộ phụ trách sinh viên quốc tế.
+  - ko: 주소지 관할 출입국·외국인관서에 신청서와 서류를 제출합니다.
+    en: Submit the application and documents at the immigration office for your address.
+    vi: Nộp đơn và giấy tờ tại văn phòng xuất nhập cảnh nơi bạn ở.
+  - ko: 허가되면 여권에 허가인·스티커가 붙거나 허가서가 발급됩니다.
+    en: If granted, a stamp or sticker goes in your passport, or a permit document is issued.
+    vi: Nếu được duyệt, hộ chiếu sẽ được đóng dấu/dán tem hoặc cấp giấy phép.
+documents:
+  - ko: 체류자격 외 활동허가 신청서
+    en: Application for permission for activities outside status
+    vi: Đơn xin hoạt động ngoài tư cách lưu trú
+  - ko: 여권
+    en: Passport
+    vi: Hộ chiếu
+  - ko: 외국인등록증 (외국인등록을 한 경우)
+    en: ARC, if you have registered
+    vi: Thẻ ARC, nếu đã đăng ký
+cautions:
+  - ko: 허용 시간은 한국어 능력과 과정에 따라 다릅니다. 기준 미달이면 주중 10시간(석·박사 15시간), 충족하면 주중 25시간(석·박사 30시간), 주말·방학은 시간 제한이 없거나 30~35시간입니다.
+    en: Allowed hours depend on Korean proficiency and programme. Below the threshold, 10 hours a week (15 for graduate students); at or above it, 25 hours (30 for graduate students).
+    vi: Số giờ cho phép tùy theo tiếng Hàn và bậc học. Chưa đạt chuẩn 10 giờ/tuần (cao học 15 giờ), đạt chuẩn 25 giờ (cao học 30 giờ).
+  - ko: 어학연수생(D-4-1, D-4-7)과 방문학생(D-2-8)은 변경일 또는 입국일부터 6개월이 지나야 신청할 수 있고, 이 경우 주당 30시간까지만 허용됩니다.
+    en: Language trainees (D-4-1, D-4-7) and visiting students (D-2-8) must wait six months, and are limited to 30 hours a week.
+    vi: Học viên tiếng (D-4-1, D-4-7) và sinh viên trao đổi (D-2-8) phải chờ 6 tháng và chỉ được tối đa 30 giờ/tuần.
+  - ko: 제조업·건설업, 선원취업, 택배·배달·대리운전 등 특수형태근로, 파견·도급·알선, 원거리 근무는 제한됩니다. 한국어 4급 이상이면 제조업은 예외적으로 허용됩니다.
+    en: Manufacturing, construction, shipboard work, delivery/courier/substitute-driving gig work, dispatch or brokered work, and remote-location work are restricted. Manufacturing is allowed at TOPIK 4 or above.
+    vi: Hạn chế các ngành sản xuất, xây dựng, thuyền viên, giao hàng, lái xe thuê, lao động phái cử và làm việc ở xa. Sản xuất được phép nếu TOPIK từ cấp 4.
+sources:
+  - id: easylaw-parttime
+    publisher: 법제처 찾기쉬운 생활법령정보
+    title: 외국인유학생 > 국내 생활 > 유학 중 아르바이트 > 시간제 취업(아르바이트)
+    url: https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=2853&ccfNo=3&cciNo=6&cnpClsNo=1
+    source_updated_on: null
+    cites: 법무부 출입국·외국인정책본부 『체류자격별 통합 안내 매뉴얼』 2026.8.7, 출입국관리법 제18조·제20조
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:d9245eaf0224f193ef7bf774945b5707
+  - id: hikorea-187
+    publisher: 법무부 하이코리아
+    title: 체류자격외활동허가 절차/방법
+    url: https://www.hikorea.go.kr/info/InfoDatail.pt?CAT_SEQ=187&PARENT_ID=142
+    source_updated_on: 2013-01-01
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:1835e4802b954f59d9f3268ca6a2b403

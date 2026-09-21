@@ -1,0 +1,107 @@
+{
+  "app": {
+    "name": "Settle Quest",
+    "tagline": "Hướng dẫn thủ tục định cư ban đầu cho du học sinh"
+  },
+  "legal": {
+    "short": "Chỉ là thông tin hành chính, không có giá trị pháp lý.",
+    "long": "Dịch vụ này tổng hợp thông tin công khai của cơ quan nhà nước. Nội dung không có giá trị pháp lý và không thay thế phán đoán cho hoàn cảnh riêng của bạn. Hãy xác nhận với cơ quan phụ trách hoặc tổng đài 1345 trước khi nộp hồ sơ."
+  },
+  "nav": {
+    "home": "Trang chính",
+    "quests": "Thủ tục",
+    "documents": "Giấy tờ",
+    "support": "Nơi hỗ trợ",
+    "freshness": "Độ mới thông tin"
+  },
+  "onboarding": {
+    "title": "Trước tiên, ba thông tin",
+    "why": "Thủ tục cần làm và thời hạn khác nhau theo quốc tịch, tư cách lưu trú và ngày nhập cảnh. Thông tin bạn nhập chỉ lưu trên máy này, không gửi lên máy chủ.",
+    "nationality": "Quốc tịch",
+    "visa": "Tư cách lưu trú",
+    "entryDate": "Ngày nhập cảnh",
+    "registrationDate": "Ngày đăng ký người nước ngoài (nếu biết)",
+    "registrationHint": "Dùng để tính ngày bắt đầu bảo hiểm y tế. Để trống cũng không sao.",
+    "submit": "Tạo danh sách của tôi",
+    "nationalityPlaceholder": "ví dụ: Việt Nam"
+  },
+  "quest": {
+    "listTitle": "Thủ tục định cư của tôi",
+    "next": "Việc cần làm ngay",
+    "available": "Có thể làm ngay",
+    "blocked": "Cần làm việc khác trước",
+    "done": "Đã xong",
+    "blockedBy": "Phải hoàn thành trước",
+    "softNote": "Làm trước thì có nhiều lựa chọn hơn",
+    "deadline": "Hạn",
+    "daysLeft": "Còn {days} ngày",
+    "overdue": "Quá hạn {days} ngày",
+    "noDeadline": "Không có hạn cố định",
+    "steps": "Các bước",
+    "documents": "Giấy tờ cần có",
+    "cautions": "Lưu ý",
+    "contacts": "Liên hệ",
+    "terms": "Thuật ngữ hành chính",
+    "markDone": "Đánh dấu đã xong",
+    "markUndone": "Bỏ đánh dấu",
+    "empty": "Không có thủ tục nào phù hợp.",
+    "progress": "Đã xong {done}/{total}"
+  },
+  "freshness": {
+    "verified": "Đã kiểm tra",
+    "aging": "Kiểm tra đã lâu",
+    "stale": "Cần kiểm tra lại",
+    "changed": "Nguồn đã thay đổi",
+    "checkedOn": "Kiểm tra ngày {date}",
+    "sourceUpdatedOn": "Nguồn cập nhật lần cuối {date}",
+    "sourceUpdatedUnknown": "Nguồn không ghi ngày cập nhật",
+    "nextCheck": "Kiểm tra tiếp {date}",
+    "warning": "Hướng dẫn này đã quá hạn rà soát. Hãy hỏi trực tiếp cơ quan phụ trách.",
+    "changedWarning": "Trang nguồn đã thay đổi. Đừng tin hướng dẫn này cho tới khi có người rà soát.",
+    "sources": "Nguồn",
+    "dashboardTitle": "Độ mới thông tin",
+    "coverage": "Nguồn được kiểm tra trong 90 ngày",
+    "coverageWhy": "Con số này cho thấy sản phẩm thực sự mới đến đâu. Thấp thì hiển thị thấp.",
+    "builtOn": "Bộ quy tắc dựng ngày {date}"
+  },
+  "documents": {
+    "title": "Trợ lý giấy tờ",
+    "why": "Đọc vùng máy đọc (MRZ) trên hộ chiếu và điền vào các ô của biểu mẫu tiếng Hàn. Ảnh chỉ được xử lý trên máy này và không gửi đi đâu.",
+    "pick": "Chọn ảnh hộ chiếu",
+    "scanning": "Đang đọc…",
+    "failed": "Không đọc được MRZ. Vui lòng tự nhập bên dưới.",
+    "verified": "Đã xác minh bằng số kiểm tra",
+    "unverified": "Chưa xác minh — hãy kiểm tra lại",
+    "suggestions": "Có thể đã đọc thành",
+    "applySuggestion": "Dùng giá trị này",
+    "rawLines": "Nội dung đã đọc",
+    "fields": {
+      "surname": "Họ (chữ Latinh) / 성",
+      "givenNames": "Tên (chữ Latinh) / 이름",
+      "passportNumber": "Số hộ chiếu / 여권번호",
+      "nationality": "Quốc tịch / 국적",
+      "birthDate": "Ngày sinh / 생년월일",
+      "sex": "Giới tính / 성별",
+      "expiryDate": "Ngày hết hạn hộ chiếu / 여권 만료일",
+      "koreanName": "Tên tiếng Hàn / 한글 성명"
+    },
+    "koreanNameHint": "Cách viết tiếng Hàn không được tạo tự động. Phiên âm sai sẽ bị trả hồ sơ, nên hãy tự nhập.",
+    "save": "Lưu trên máy này",
+    "saved": "Đã lưu",
+    "export": "Xuất (JSON)",
+    "clear": "Xóa dữ liệu đã lưu",
+    "clearConfirm": "Thao tác này xóa mọi dữ liệu lưu trên máy. Tiếp tục?",
+    "storageNote": "Dữ liệu đã lưu chỉ nằm trong trình duyệt này. Máy chủ không lưu gì cả."
+  },
+  "support": {
+    "title": "Nơi hỗ trợ công",
+    "why": "Dịch vụ này không môi giới chuyên gia và không nhận hoa hồng. Chỉ tổng hợp thông tin công khai về các đầu mối hỗ trợ công.",
+    "phone": "Điện thoại"
+  },
+  "common": {
+    "back": "Quay lại",
+    "language": "Ngôn ngữ",
+    "reset": "Nhập lại hồ sơ",
+    "learnMore": "Chi tiết"
+  }
+}

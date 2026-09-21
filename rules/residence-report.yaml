@@ -1,0 +1,56 @@
+id: residence-report
+order: 2
+title:
+  ko: 체류지 변경 신고
+  en: Report of Change of Residence
+  vi: Khai báo thay đổi nơi cư trú
+summary:
+  ko: 이사하면 전입한 날부터 15일 안에 신고해야 합니다. 늦으면 100만 원 이하의 벌금이 부과됩니다.
+  en: After moving you must report within 15 days. A late report can bring a fine of up to KRW 1,000,000.
+  vi: Sau khi chuyển nhà, phải khai báo trong 15 ngày. Trễ hạn có thể bị phạt đến 1.000.000 won.
+terms:
+  - ko: 전입신고
+    en: Move-in report
+    vi: Khai báo chuyển đến
+  - ko: 읍·면·동 주민센터
+    en: Local community service centre (eup/myeon/dong office)
+    vi: Trung tâm hành chính phường/xã
+applies_to:
+  visa: [D-2, D-4]
+  requires_arc: true
+  agency: [지방출입국·외국인관서, 읍·면·동 주민센터]
+requires: [alien-registration]
+deadline:
+  from: move_in_date
+  days: 15
+steps:
+  - ko: 새 주소를 관할하는 출입국·외국인관서 또는 새 체류지의 읍·면·동 주민센터를 고릅니다. 둘 중 어디든 됩니다.
+    en: Choose either the immigration office for the new address or the local community centre. Either one is valid.
+    vi: Chọn văn phòng xuất nhập cảnh của địa chỉ mới hoặc trung tâm hành chính phường/xã. Nơi nào cũng được.
+  - ko: 여권, 외국인등록증, 체류지 입증서류, 신고서를 제출합니다.
+    en: Submit your passport, ARC, proof of the new residence, and the report form.
+    vi: Nộp hộ chiếu, thẻ ARC, giấy tờ chứng minh nơi ở mới và tờ khai.
+documents:
+  - ko: 여권 및 외국인등록증
+    en: Passport and ARC
+    vi: Hộ chiếu và thẻ ARC
+  - ko: 체류지 입증서류
+    en: Proof of the new residence
+    vi: Giấy tờ chứng minh nơi ở mới
+  - ko: 신고서
+    en: Report form
+    vi: Tờ khai
+cautions:
+  - ko: 전입한 날부터 15일 안에 신고하지 않으면 출입국관리법 제36조 위반으로 100만 원 이하의 벌금이 부과됩니다.
+    en: Failing to report within 15 days violates Article 36 of the Immigration Act and can bring a fine of up to KRW 1,000,000.
+    vi: Không khai báo trong 15 ngày là vi phạm Điều 36 Luật Xuất nhập cảnh, có thể bị phạt đến 1.000.000 won.
+sources:
+  - id: hikorea-197
+    publisher: 법무부 하이코리아
+    title: 체류지변경 신고의무
+    url: https://www.hikorea.go.kr/info/InfoDatail.pt?CAT_SEQ=197&PARENT_ID=146
+    source_updated_on: 2020-12-10
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:559f686ebd6d026d2813e8c39acfa976

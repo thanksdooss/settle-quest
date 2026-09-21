@@ -1,0 +1,70 @@
+id: health-insurance
+order: 5
+title:
+  ko: 국민건강보험 가입
+  en: National Health Insurance Enrolment
+  vi: Tham gia bảo hiểm y tế quốc gia
+summary:
+  ko: 유학(D-2)은 신청하지 않아도 자동으로 지역가입자가 됩니다. 가입일은 외국인등록일입니다. 등록이 늦어지면 보험 적용도 늦어집니다.
+  en: D-2 students are enrolled automatically as regional subscribers. Your start date is the date of alien registration, so a late registration delays coverage.
+  vi: Sinh viên D-2 được tự động tham gia, không cần nộp đơn. Ngày bắt đầu là ngày đăng ký người nước ngoài.
+terms:
+  - ko: 지역가입자
+    en: Regional (self-employed) subscriber
+    vi: Người tham gia theo khu vực
+  - ko: 당연가입
+    en: Mandatory automatic enrolment
+    vi: Tham gia bắt buộc tự động
+applies_to:
+  visa: [D-2, D-4]
+  agency: [국민건강보험공단]
+requires: [alien-registration]
+deadline:
+  from: registration_date
+  days: 0
+  note:
+    ko: 유학(D-2)과 초·중·고생(D-4-3)은 외국인등록일에 가입됩니다. 그 밖의 일반연수(D-4)는 입국일부터 6개월 후에 가입됩니다.
+    en: D-2 and D-4-3 are enrolled on the date of alien registration. Other D-4 holders are enrolled six months after entry.
+    vi: D-2 và D-4-3 tham gia từ ngày đăng ký. Các trường hợp D-4 khác tham gia sau 6 tháng kể từ ngày nhập cảnh.
+steps:
+  - ko: 별도의 신고 절차는 없습니다. 공단이 자동으로 가입 처리합니다.
+    en: There is no application step. The insurance service enrols you automatically.
+    vi: Không cần nộp đơn. Cơ quan bảo hiểm tự động xử lý.
+  - ko: 고지서를 받으면 매월 보험료를 냅니다. 해당 월 보험료는 직전 월 25일까지 냅니다.
+    en: Pay the monthly premium when billed. Each month's premium is due by the 25th of the previous month.
+    vi: Đóng phí hàng tháng khi nhận hóa đơn. Phí của tháng phải đóng trước ngày 25 tháng trước.
+  - ko: 병원에서는 신분증으로 본인 확인을 합니다. 외국인등록증, 여권, 국내 운전면허증 또는 모바일 건강보험증을 제시합니다.
+    en: Clinics verify your identity. Show your ARC, passport, Korean driving licence, or the mobile insurance card.
+    vi: Bệnh viện sẽ xác minh danh tính. Xuất trình ARC, hộ chiếu, bằng lái Hàn Quốc hoặc thẻ bảo hiểm di động.
+documents:
+  - ko: 별도 제출서류 없음 (자동 가입)
+    en: No documents required (automatic enrolment)
+    vi: Không cần giấy tờ (tự động tham gia)
+  - ko: 경우에 따라 가족관계·혼인 관계 서류나 소득·재산 확인서류를 요구받을 수 있습니다.
+    en: In some cases you may be asked for family, marital, income or property documents.
+    vi: Đôi khi có thể phải nộp giấy tờ về gia đình, hôn nhân, thu nhập hoặc tài sản.
+cautions:
+  - ko: 유학(D-2)·일반연수(D-4)는 2023년 3월분 이후 월별 보험료의 50%를 경감받습니다.
+    en: D-2 and D-4 holders receive a 50% premium reduction for months from March 2023 onward.
+    vi: D-2 và D-4 được giảm 50% phí hàng tháng từ tháng 3/2023 trở đi.
+  - ko: 체류기간이 끝난 날의 다음 날, 또는 출국 후 1개월 이상 국외에 머무르면 그 다음 날에 자격을 잃습니다.
+    en: Coverage ends the day after your stay permit expires, or the day after departure if you stay abroad for a month or more.
+    vi: Mất tư cách vào ngày sau khi hết hạn lưu trú, hoặc sau khi ra nước ngoài từ một tháng trở lên.
+  - ko: 체류기간 연장허가를 받지 않고 체류하거나 강제퇴거명령서를 받은 경우에는 가입자가 될 수 없습니다.
+    en: You cannot be enrolled if you stay without an extension permit or have received a deportation order.
+    vi: Không được tham gia nếu lưu trú quá hạn không gia hạn hoặc đã có lệnh trục xuất.
+contacts:
+  - ko: 국민건강보험 외국인 민원센터 033-811-2000 / 1577-1000
+    en: NHIS foreigner support 033-811-2000 / 1577-1000
+    vi: Tổng đài NHIS cho người nước ngoài 033-811-2000 / 1577-1000
+sources:
+  - id: easylaw-nhis
+    publisher: 법제처 찾기쉬운 생활법령정보
+    title: 외국인유학생 > 국내 생활 > 의료 > 국민건강보험 가입
+    url: https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=2853&ccfNo=3&cciNo=5&cnpClsNo=1
+    source_updated_on: null
+    cites: 국민건강보험법 제109조, 장기체류 재외국민 및 외국인에 대한 건강보험 적용기준, 국민건강보험공단 『외국인유학생 건강보험 적용 안내』 2021.4
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:0a0073afab8d1e7f1d487f8dd5b45612

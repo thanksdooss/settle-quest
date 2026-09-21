@@ -1,0 +1,53 @@
+# 공공 지원 창구. 금전 중개나 전문가 알선은 하지 않고, 공개된 공공 창구 정보만 정리한다.
+kind: support-desks
+desks:
+  - id: immigration-1345
+    name:
+      ko: 외국인 종합안내센터
+      en: Immigration Contact Center
+      vi: Tổng đài tư vấn người nước ngoài
+    phone: "1345"
+    scope:
+      ko: 체류·출입국 전반. 20개 언어로 상담하고 3자 통화를 지원합니다.
+      en: All immigration and stay matters. Counselling in 20 languages with three-way calls.
+      vi: Mọi vấn đề lưu trú và xuất nhập cảnh. Tư vấn 20 ngôn ngữ, hỗ trợ gọi ba bên.
+  - id: nhis-foreign
+    name:
+      ko: 국민건강보험 외국인 민원센터
+      en: NHIS Foreigner Support Centre
+      vi: Trung tâm hỗ trợ người nước ngoài NHIS
+    phone: "033-811-2000 / 1577-1000"
+    scope:
+      ko: 건강보험 자격·보험료 문의
+      en: Health insurance eligibility and premiums
+      vi: Tư vấn tư cách và phí bảo hiểm y tế
+  - id: medical-korea
+    name:
+      ko: 메디컬코리아 지원센터 (메디컬콜)
+      en: Medical Korea Information Center
+      vi: Trung tâm thông tin Medical Korea
+    phone: "1577-7129"
+    scope:
+      ko: 의료 상담. 영어·중국어·러시아어·일본어를 지원합니다.
+      en: Medical counselling in English, Chinese, Russian and Japanese.
+      vi: Tư vấn y tế bằng tiếng Anh, Trung, Nga, Nhật.
+  - id: emergency-119
+    name:
+      ko: 긴급 신고
+      en: Emergency
+      vi: Cấp cứu
+    phone: "119"
+    scope:
+      ko: 24시간 긴급 의료 상담. 외국어 상담을 요청할 수 있습니다.
+      en: 24-hour emergency medical help. You can ask for a foreign-language operator.
+      vi: Cấp cứu 24 giờ. Có thể yêu cầu nhân viên nói ngoại ngữ.
+sources:
+  - id: easylaw-nhis-contacts
+    publisher: 법제처 찾기쉬운 생활법령정보
+    title: 외국인유학생 > 국내 생활 > 의료 > 국민건강보험 가입
+    url: https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=2853&ccfNo=3&cciNo=5&cnpClsNo=1
+    source_updated_on: null
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:0a0073afab8d1e7f1d487f8dd5b45612

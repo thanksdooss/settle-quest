@@ -1,0 +1,67 @@
+id: bank-account
+order: 4
+title:
+  ko: 은행 계좌 개설
+  en: Opening a Bank Account
+  vi: Mở tài khoản ngân hàng
+summary:
+  ko: 본국 송금을 받으려면 외국환은행에 대외계정을 열 수 있습니다. 신분증명서 외에 금융거래 목적 증명서류를 요구받습니다.
+  en: You can open a non-resident foreign currency account at a foreign exchange bank. Besides ID you will be asked to show the purpose of the transaction.
+  vi: Bạn có thể mở tài khoản ngoại tệ tại ngân hàng ngoại hối. Ngoài giấy tờ tùy thân, bạn phải chứng minh mục đích giao dịch.
+terms:
+  - ko: 외국환은행
+    en: Foreign exchange bank
+    vi: Ngân hàng ngoại hối
+  - ko: 대외계정
+    en: Non-resident foreign currency account
+    vi: Tài khoản ngoại tệ cho người không cư trú
+  - ko: 금융실명제
+    en: Real-name financial transaction system
+    vi: Chế độ giao dịch tài chính bằng tên thật
+applies_to:
+  visa: [D-2, D-4]
+  agency: [외국환은행]
+requires: []
+requires_soft: [alien-registration]
+requires_note:
+  ko: 법령은 "여권, 외국인등록증 등의 신분증명서"라고만 정합니다. 실제로 어떤 신분증을 받아 주는지는 은행·지점마다 다를 수 있어 방문 전 확인이 필요합니다.
+  en: The rule says "passport, ARC or similar ID". Which ID a branch actually accepts can differ, so check before you go.
+  vi: Quy định chỉ ghi "hộ chiếu, thẻ ARC hoặc giấy tờ tùy thân tương tự". Mỗi chi nhánh có thể khác nhau, nên hỏi trước.
+steps:
+  - ko: 외국환은행 지점을 방문합니다.
+    en: Visit a branch of a foreign exchange bank.
+    vi: Đến chi nhánh ngân hàng ngoại hối.
+  - ko: 신분증명서와 금융거래 목적 증명서류를 제시합니다.
+    en: Present your ID and documents showing the purpose of the account.
+    vi: Xuất trình giấy tờ tùy thân và giấy tờ chứng minh mục đích giao dịch.
+  - ko: 송금을 받을 때는 통장과 신분증명서, 인장 또는 서명을 제시합니다.
+    en: To receive a remittance, bring the passbook, your ID, and your seal or signature.
+    vi: Khi nhận tiền gửi, mang theo sổ tài khoản, giấy tờ tùy thân và con dấu hoặc chữ ký.
+documents:
+  - ko: 여권, 외국인등록증 등의 신분증명서
+    en: Passport, ARC or similar identification
+    vi: Hộ chiếu, thẻ ARC hoặc giấy tờ tùy thân tương tự
+  - ko: "금융거래 목적 증명서류 (예: 재학증명서)"
+    en: Documents showing the purpose of the transaction (e.g. certificate of enrolment)
+    vi: "Giấy tờ chứng minh mục đích giao dịch (ví dụ giấy xác nhận đang học)"
+cautions:
+  - ko: 미화 1만 불을 초과하는 지급수단을 휴대하여 입국하면 관할 세관에 수입신고를 해야 합니다.
+    en: If you bring in more than USD 10,000 in means of payment, you must declare it to customs on arrival.
+    vi: Mang vào hơn 10.000 USD phải khai báo hải quan khi nhập cảnh.
+  - ko: 외화를 원화로 바꿀 때 미화 2만 불 이하(같은 날 합산)는 취득 경위 증빙을 확인하지 않습니다.
+    en: Exchanging up to USD 20,000 into won (aggregated per day) does not require proof of source.
+    vi: Đổi đến 20.000 USD sang won (tính gộp trong ngày) không cần chứng minh nguồn gốc.
+  - ko: 원화를 외화로 바꿀 때 건당 5천 불 이내면 증빙서류 없이 환전할 수 있습니다.
+    en: Converting won to foreign currency up to USD 5,000 per transaction needs no supporting document.
+    vi: Đổi won sang ngoại tệ dưới 5.000 USD mỗi lần thì không cần giấy tờ.
+sources:
+  - id: easylaw-bank
+    publisher: 법제처 찾기쉬운 생활법령정보
+    title: 외국인유학생 > 국내 생활 > 금융 거래 > 은행 이용 등
+    url: https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=2853&ccfNo=3&cciNo=2&cnpClsNo=1
+    source_updated_on: null
+    cites: 외국환거래규정, 금융실명거래 및 비밀보장에 관한 법률, 특정 금융거래정보의 보고 및 이용 등에 관한 법률
+    checked_by: maintainer
+    checked_on: 2026-09-21
+    next_check_on: 2026-12-20
+    content_hash: sha256:9f4974488709fa619273940db2696e93

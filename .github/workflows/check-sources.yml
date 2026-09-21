@@ -1,0 +1,53 @@
+# 주 1회 원문이 바뀌었는지 확인한다. 바뀌면 규칙을 고치는 대신 사람을 부른다.
+name: 원문 변경 감지
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # 매주 월요일 09:00 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+
+      - name: 원문 비교
+        id: check
+        continue-on-error: true
+        run: node scripts/check-sources.mjs --write
+
+      - name: 커버리지 갱신
+        run: node scripts/coverage.mjs
+
+      - name: 변경 사항 커밋
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add rules docs/review-queue.md public/coverage.json README.md
+            git commit -m '규칙: 원문 변경 감지 결과 반영 (자동)'
+            git push
+          fi
+
+      - name: 검토 이슈 열기
+        if: steps.check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = require('fs').readFileSync('docs/review-queue.md', 'utf8')
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `원문 변경 검토 필요 — ${new Date().toISOString().slice(0, 10)}`,
+              body,
+              labels: ['규칙 검토'],
+            })
