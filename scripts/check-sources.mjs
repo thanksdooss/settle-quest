@@ -104,10 +104,11 @@ for (const file of readdirSync(rulesDir).filter((f) => f.endsWith('.yaml')).sort
         if (write) ({ text } = patchSource(text, source.id, { content_hash: fresh, changed_at: today }))
       }
     } catch (e) {
-      // 못 읽은 것도 사건이다. 조용히 넘어가면 "확인했다"는 거짓이 남는다.
+      // 못 읽은 것은 "원문이 바뀌었다"가 아니다. changed_at 을 찍으면 사용자 화면에
+      // "원문 변경됨"이라는 사실이 아닌 말이 뜬다. 그래서 규칙 데이터는 건드리지 않고
+      // 검토 큐에만 올린다. 아무도 확인하지 않으면 next_check_on 이 지나 저절로 "확인 필요"가 된다.
       entry.state = 'unreachable'
       entry.error = e.message
-      if (write) ({ text } = patchSource(text, source.id, { changed_at: today }))
     }
     results.push(entry)
   }
@@ -117,6 +118,9 @@ for (const file of readdirSync(rulesDir).filter((f) => f.endsWith('.yaml')).sort
 
 const by = (state) => results.filter((r) => r.state === state)
 const needsReview = [...by('changed'), ...by('unreachable')]
+// 전부 못 읽었다면 원문 문제가 아니라 실행 환경 문제다. 한국 공공기관 사이트는
+// 해외 데이터센터 IP(GitHub Actions 등)를 막는다. 실제로 첫 실행에서 12건 전부 막혔다.
+const environmentFailure = results.length > 0 && by('unreachable').length === results.length
 
 const lines = [
   '# 원문 변경 검토 큐',
@@ -127,7 +131,14 @@ const lines = [
   '',
 ]
 
-if (needsReview.length === 0) {
+if (environmentFailure) {
+  lines.push(
+    '**이 실행 환경에서는 출처에 하나도 접속하지 못했습니다.** 원문이 바뀐 것이 아니라 네트워크 문제입니다.',
+    '한국 공공기관 사이트는 해외 IP를 막는 경우가 많습니다. 한국 IP에서 `npm run rules:check` 를 실행하십시오.',
+    '',
+    `첫 번째 오류: ${by('unreachable')[0].error}`,
+  )
+} else if (needsReview.length === 0) {
   lines.push('검토할 항목이 없습니다.')
 } else {
   lines.push('| 절차 | 출처 | 상태 | 원문 |', '|---|---|---|---|')
@@ -153,5 +164,9 @@ console.log(`출처 ${results.length}건 검사 — 변경 ${by('changed').lengt
 for (const r of needsReview) console.log(`  ! ${r.ruleId}/${r.sourceId} — ${r.state}${r.error ? ' (' + r.error + ')' : ''}`)
 console.log(`검토 큐 → ${queuePath.replace(root + '/', '')}`)
 
-// 변경이 있으면 종료 코드 1. CI가 이걸 보고 이슈를 연다.
+// 0: 이상 없음 · 1: 사람이 볼 것이 있음 · 2: 실행 환경이 출처에 닿지 못함
+if (environmentFailure) {
+  console.error('✗ 출처에 하나도 접속하지 못했습니다. 실행 환경의 네트워크를 확인하십시오 (해외 IP 차단 추정).')
+  process.exit(2)
+}
 process.exit(needsReview.length > 0 ? 1 : 0)

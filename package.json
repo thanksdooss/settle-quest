@@ -13,7 +13,8 @@
     "test": "npm run rules:build && vitest run",
     "test:watch": "npm run rules:build && vitest",
     "e2e": "playwright test",
-    "privacy": "node scripts/privacy-check.mjs dist"
+    "privacy": "node scripts/privacy-check.mjs dist",
+    "rules:weekly": "node scripts/check-sources.mjs --write; node scripts/coverage.mjs"
   },
   "dependencies": {
     "tesseract.js": "^6.0.1",
