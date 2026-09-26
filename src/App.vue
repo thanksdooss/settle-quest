@@ -24,6 +24,7 @@ function onLocale(event: Event) {
 
   <nav class="tabs">
     <RouterLink to="/quests">{{ t('nav.quests') }}</RouterLink>
+    <RouterLink to="/ask">{{ t('nav.ask') }}</RouterLink>
     <RouterLink to="/documents">{{ t('nav.documents') }}</RouterLink>
     <RouterLink to="/support">{{ t('nav.support') }}</RouterLink>
     <RouterLink to="/freshness">{{ t('nav.freshness') }}</RouterLink>

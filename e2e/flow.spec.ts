@@ -97,3 +97,39 @@ test('언어를 바꾸면 행정 용어는 원문 병기로 남는다', async ({
   await expect(page.getByRole('heading', { name: 'Alien Registration' })).toBeVisible()
   await expect(page.getByText('외국인등록증 · Alien Registration Card (ARC)')).toBeVisible()
 })
+
+test('물어보기: 규칙 안 질문에는 출처와 확인일을 달아 답한다', async ({ page }) => {
+  await fillProfile(page)
+  await page.getByRole('link', { name: '물어보기' }).click()
+
+  await page.getByRole('textbox', { name: '물어보기' }).fill('알바하려면 허가 받아야 하나요')
+  await page.getByRole('button', { name: '찾기' }).click()
+
+  await expect(page.getByText('규칙에서 찾은 내용')).toBeVisible()
+  await expect(page.getByRole('heading', { name: '시간제 취업 허가 (아르바이트)' })).toBeVisible()
+  // 답에도 출처와 확인일이 따라붙어야 한다
+  await expect(page.getByText(/\d{4}-\d{2}-\d{2} 확인/).first()).toBeVisible()
+  await expect(page.getByText('행정 정보 안내이며 법적 효력이 없습니다.')).toBeVisible()
+})
+
+test('물어보기: 근거가 없으면 지어내지 않고 모른다고 말한다', async ({ page }) => {
+  await fillProfile(page)
+  await page.getByRole('link', { name: '물어보기' }).click()
+
+  await page.getByRole('textbox', { name: '물어보기' }).fill('오늘 날씨 어때요')
+  await page.getByRole('button', { name: '찾기' }).click()
+
+  await expect(page.getByText('이 질문에는 답할 수 없습니다')).toBeVisible()
+  await expect(page.getByText(/지어내지 않고 모른다고 말합니다/)).toBeVisible()
+})
+
+test('물어보기: 애매하면 확신하는 대신 "비슷한 내용"이라고 말한다', async ({ page }) => {
+  await fillProfile(page)
+  await page.getByRole('link', { name: '물어보기' }).click()
+
+  await page.getByRole('textbox', { name: '물어보기' }).fill('집주인이 보증금을 안 돌려줘요 소송하려면')
+  await page.getByRole('button', { name: '찾기' }).click()
+
+  await expect(page.getByText('비슷한 내용은 있습니다')).toBeVisible()
+  await expect(page.getByText(/직접적인 답인지는 확실하지 않습니다/)).toBeVisible()
+})

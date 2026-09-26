@@ -12,7 +12,8 @@
     "quests": "Steps",
     "documents": "Documents",
     "support": "Support desks",
-    "freshness": "Information freshness"
+    "freshness": "Information freshness",
+    "ask": "Ask"
   },
   "onboarding": {
     "title": "Three things first",
@@ -103,5 +104,32 @@
     "language": "Language",
     "reset": "Enter profile again",
     "learnMore": "Details"
+  },
+  "ask": {
+    "title": "Ask",
+    "why": "Answers come only from the rules. Each answer shows which rule and which line it came from, and when that information was last checked. Your question never leaves this device.",
+    "placeholder": "e.g. How long do I have to register?",
+    "submit": "Search",
+    "examples": "Try asking",
+    "answerTitle": "Found in the rules",
+    "uncertainTitle": "Something similar exists",
+    "uncertainNote": "It is not certain this answers your question. Please check the text below yourself.",
+    "unknownTitle": "This question cannot be answered here",
+    "unknownNote": "No supporting text was found in the rules. Rather than invent an answer, we say we do not know. The Immigration Contact Center (1345) counsels in 20 languages.",
+    "matched": "Matched words",
+    "openRule": "Open the full step",
+    "fromField": "Found in",
+    "alsoSee": "Related steps",
+    "fields": {
+      "title": "Title",
+      "summary": "Summary",
+      "terms": "Terms",
+      "step": "Steps",
+      "document": "Documents",
+      "caution": "Cautions",
+      "deadline": "Deadline",
+      "requires": "Prerequisite",
+      "contact": "Contacts"
+    }
   }
 }

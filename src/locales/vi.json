@@ -12,7 +12,8 @@
     "quests": "Thủ tục",
     "documents": "Giấy tờ",
     "support": "Nơi hỗ trợ",
-    "freshness": "Độ mới thông tin"
+    "freshness": "Độ mới thông tin",
+    "ask": "Hỏi"
   },
   "onboarding": {
     "title": "Trước tiên, ba thông tin",
@@ -103,5 +104,32 @@
     "language": "Ngôn ngữ",
     "reset": "Nhập lại hồ sơ",
     "learnMore": "Chi tiết"
+  },
+  "ask": {
+    "title": "Hỏi",
+    "why": "Chỉ trả lời dựa trên quy tắc. Mỗi câu trả lời cho biết lấy từ quy tắc nào, dòng nào và thông tin đó được kiểm tra lần cuối khi nào. Câu hỏi không rời khỏi máy này.",
+    "placeholder": "ví dụ: Phải đăng ký trong bao lâu?",
+    "submit": "Tìm",
+    "examples": "Thử hỏi",
+    "answerTitle": "Tìm thấy trong quy tắc",
+    "uncertainTitle": "Có nội dung tương tự",
+    "uncertainNote": "Không chắc đây là câu trả lời cho câu hỏi của bạn. Hãy tự kiểm tra nội dung bên dưới.",
+    "unknownTitle": "Không thể trả lời câu hỏi này",
+    "unknownNote": "Không tìm thấy căn cứ trong quy tắc. Thay vì bịa ra, chúng tôi nói là không biết. Tổng đài 1345 tư vấn bằng 20 ngôn ngữ.",
+    "matched": "Từ khớp",
+    "openRule": "Xem toàn bộ thủ tục",
+    "fromField": "Tìm thấy ở",
+    "alsoSee": "Thủ tục liên quan",
+    "fields": {
+      "title": "Tiêu đề",
+      "summary": "Tóm tắt",
+      "terms": "Thuật ngữ",
+      "step": "Các bước",
+      "document": "Giấy tờ",
+      "caution": "Lưu ý",
+      "deadline": "Hạn",
+      "requires": "Điều kiện trước",
+      "contact": "Liên hệ"
+    }
   }
 }
