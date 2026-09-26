@@ -80,7 +80,7 @@ sources:
     checked_by: maintainer
     checked_on: 2026-09-21
     next_check_on: 2026-12-20
-    content_hash: sha256:52976c3aefa8ade7b32822889c8be4a2
+    content_hash: sha256:28ec6e006f0e65f9978a6a1a46b85811
   - id: hikorea-177
     publisher: 법무부 하이코리아
     title: 외국인등록시 제출서류
@@ -93,7 +93,7 @@ sources:
       ko: 이 페이지는 원문에 "작성일 2013.01.01"로 표시되어 있습니다. 실제 창구 요구와 다를 수 있으니 방문 전 1345로 확인하십시오.
       en: The page itself states it was written on 2013-01-01. Confirm with 1345 before visiting.
       vi: Trang này ghi ngày soạn là 01/01/2013. Hãy gọi 1345 xác nhận trước khi đi.
-    content_hash: sha256:8854b8b50d258c8b7ddb31100527ead1
+    content_hash: sha256:52e22286baad300cef2860b847911a30
   - id: hikorea-178
     publisher: 법무부 하이코리아
     title: 외국인등록증 발급/재발급/교부
@@ -102,4 +102,4 @@ sources:
     checked_by: maintainer
     checked_on: 2026-09-21
     next_check_on: 2026-12-20
-    content_hash: sha256:a113c8b1d15390bd58d8b894983dc0c2
+    content_hash: sha256:e260883b94a2f9901659b125b0d1c9d7

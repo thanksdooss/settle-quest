@@ -66,7 +66,7 @@ sources:
     checked_by: maintainer
     checked_on: 2026-09-21
     next_check_on: 2026-12-20
-    content_hash: sha256:a113c8b1d15390bd58d8b894983dc0c2
+    content_hash: sha256:e260883b94a2f9901659b125b0d1c9d7
   - id: hikorea-196
     publisher: 법무부 하이코리아
     title: 외국인등록사항 변경 신고의무
@@ -75,4 +75,4 @@ sources:
     checked_by: maintainer
     checked_on: 2026-09-21
     next_check_on: 2026-12-20
-    content_hash: sha256:bd525d39c336001da7f4bb06066d3dd3
+    content_hash: sha256:e13ce2e0c0c2cda5ee3a8d61f7753278

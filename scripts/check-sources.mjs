@@ -5,14 +5,18 @@
 // (2) 사람이 볼 검토 큐를 만든다.
 //
 // 사용: node scripts/check-sources.mjs [--write] [--queue docs/review-queue.md]
-import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
 import yaml from 'js-yaml'
+import { classifyChange, diffLines, SEVERITY_ORDER } from './lib/triage.mjs'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const rulesDir = join(root, 'rules')
+// 정규화한 원문을 남겨 둔다. 해시만으로는 "바뀌었다"까지만 알 수 있고 "무엇이"를 알 수 없다.
+// 이전 판은 Git 이력에 남으므로 파일은 한 벌만 들고 있으면 된다.
+const snapshotDir = join(root, 'rules', 'snapshots')
 const args = process.argv.slice(2)
 const write = args.includes('--write')
 const queueAt = args.indexOf('--queue')
@@ -21,14 +25,23 @@ const today = new Date().toISOString().slice(0, 10)
 
 /**
  * 페이지에서 비교할 본문만 남긴다.
- * 스크립트·스타일·태그를 걷어내고, 매번 달라지는 값(세션 토큰, 방문자 수, 오늘 날짜)을 지운다.
+ *
+ * 태그를 걷어내고, 매번 달라지는 값(세션 토큰, 접속 시각)을 지운다.
  * 이걸 하지 않으면 내용이 그대로인데도 매주 "바뀌었다"고 알리게 된다.
+ *
+ * **줄 구조는 일부러 살린다.** 처음에는 공백을 전부 하나로 눌러 한 줄로 만들었는데,
+ * 그러면 페이지 전체가 한 줄이 되어 "무엇이 바뀌었는지" 비교가 불가능했다.
+ * 실제로 신고 기한이 15일에서 30일로 바뀐 상황을 만들어 보니 "공지만 바뀜"으로 분류됐다.
+ * 문단·표 칸 경계를 줄바꿈으로 남겨야 줄 단위 비교가 뜻을 갖는다.
  */
 export function normalize(html) {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<!--[\s\S]*?-->/g, ' ')
+    // 문단·목록·표 칸이 끝나는 자리는 줄바꿈으로 바꾼다
+    .replace(/<\/(p|div|li|tr|td|th|h[1-6]|section|article)>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
@@ -37,8 +50,10 @@ export function normalize(html) {
     // 요청마다 달라지는 값들
     .replace(/[?&](jsessionid|csrf|_csrf|token|timestamp|t)=[^\s&"']*/gi, '')
     .replace(/\d{4}[-.]\d{1,2}[-.]\d{1,2}\s*\d{1,2}:\d{2}(:\d{2})?/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
+    .split('\n')
+    .map((line) => line.replace(/[^\S\n]+/g, ' ').trim())
+    .filter(Boolean)
+    .join('\n')
 }
 
 export function hash(text) {
@@ -129,14 +144,32 @@ for (const file of readdirSync(rulesDir).filter((f) => f.endsWith('.yaml')).sort
 
   for (const source of sources) {
     const entry = { file, ruleId, sourceId: source.id, url: source.url, title: source.title }
+    const snapshotPath = join(snapshotDir, `${source.id}.txt`)
     try {
-      const fresh = hash(normalize(await fetchText(source.url)))
+      const body = normalize(await fetchText(source.url))
+      const fresh = hash(body)
+      // 스냅숏이 없으면 먼저 만들어 둔다. 없으면 다음에 바뀌어도 무엇이 바뀌었는지 말할 수 없다.
+      if (write && !existsSync(snapshotPath)) {
+        mkdirSync(snapshotDir, { recursive: true })
+        writeFileSync(snapshotPath, body + '\n')
+      }
       if (!source.content_hash) {
         entry.state = 'baseline'
-        if (write) ({ text } = patchSource(text, source.id, { content_hash: fresh }))
+        if (write) {
+          mkdirSync(snapshotDir, { recursive: true })
+          writeFileSync(snapshotPath, body + '\n')
+          ;({ text } = patchSource(text, source.id, { content_hash: fresh }))
+        }
       } else if (source.content_hash === fresh) {
         entry.state = 'same'
       } else {
+        // 무엇이 바뀌었는지 판별해 큐에 순서를 매긴다. 규칙 자체는 건드리지 않는다.
+        const before = existsSync(snapshotPath) ? readFileSync(snapshotPath, 'utf8') : ''
+        entry.triage = classifyChange(diffLines(before, body), doc)
+        if (write) {
+          mkdirSync(snapshotDir, { recursive: true })
+          writeFileSync(snapshotPath, body + '\n')
+        }
         // 해시만 갱신하고 끝내면 변경을 소리 없이 삼키게 된다. changed_at 을 찍어 두어야
         // 사람이 확인할 때까지 화면에 "확인 필요"가 남는다.
         entry.state = 'changed'
@@ -180,10 +213,26 @@ if (environmentFailure) {
 } else if (needsReview.length === 0) {
   lines.push('검토할 항목이 없습니다.')
 } else {
-  lines.push('| 절차 | 출처 | 상태 | 원문 |', '|---|---|---|---|')
-  for (const r of needsReview) {
+  const LABEL = { high: '높음 · 절차가 달라질 수 있음', medium: '중간 · 내용 확인 필요', low: '낮음 · 공지·날짜만 바뀜' }
+  const ordered = [...needsReview].sort(
+    (a, b) => (SEVERITY_ORDER[a.triage?.severity] ?? -1) - (SEVERITY_ORDER[b.triage?.severity] ?? -1),
+  )
+
+  lines.push('| 심각도 | 절차 | 출처 | 상태 | 원문 |', '|---|---|---|---|---|')
+  for (const r of ordered) {
     const state = r.state === 'changed' ? '원문 변경됨' : `접근 불가 (${r.error})`
-    lines.push(`| ${r.ruleId} | ${r.sourceId} | ${state} | [${r.title}](${r.url}) |`)
+    const severity = r.triage ? LABEL[r.triage.severity] : '—'
+    lines.push(`| ${severity} | ${r.ruleId} | ${r.sourceId} | ${state} | [${r.title}](${r.url}) |`)
+  }
+
+  for (const r of ordered.filter((x) => x.triage)) {
+    lines.push('', `### ${r.ruleId} / ${r.sourceId}`, '')
+    lines.push(`- 판단 근거: ${r.triage.reasons.join(', ')}`)
+    if (r.triage.fields.length) lines.push(`- 영향받을 수 있는 칸: ${r.triage.fields.join(', ')}`)
+    if (r.triage.samples.length) {
+      lines.push('- 실제로 바뀐 줄:')
+      for (const sample of r.triage.samples) lines.push(`  - \`${sample.replace(/`/g, "'")}\``)
+    }
   }
   lines.push(
     '',
@@ -200,7 +249,10 @@ mkdirSync(dirname(queuePath), { recursive: true })
 writeFileSync(queuePath, lines.join('\n') + '\n')
 
 console.log(`출처 ${results.length}건 검사 — 변경 ${by('changed').length}, 접근 불가 ${by('unreachable').length}, 동일 ${by('same').length}, 최초 기록 ${by('baseline').length}`)
-for (const r of needsReview) console.log(`  ! ${r.ruleId}/${r.sourceId} — ${r.state}${r.error ? ' (' + r.error + ')' : ''}`)
+for (const r of needsReview) {
+  const severity = r.triage ? ` [${r.triage.severity}] ${r.triage.reasons.join(', ')}` : ''
+  console.log(`  ! ${r.ruleId}/${r.sourceId} — ${r.state}${r.error ? ' (' + r.error + ')' : ''}${severity}`)
+}
 console.log(`검토 큐 → ${queuePath.replace(root + '/', '')}`)
 
 // 0: 이상 없음 · 1: 사람이 볼 것이 있음 · 2: 실행 환경이 출처에 닿지 못함
