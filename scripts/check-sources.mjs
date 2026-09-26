@@ -85,15 +85,37 @@ export function explain(error) {
   return parts.join(' ← ')
 }
 
+/**
+ * 한 번 실패했다고 "못 읽었다"로 단정하지 않는다.
+ *
+ * 첫 운영 실행에서 출처 12건이 한꺼번에 실패한 적이 있다. 원인을 조사해 보니
+ * 접속 차단이 아니라 일시적인 장애였고, 같은 환경에서 다시 돌리니 12건 모두 읽혔다.
+ * 공공기관 사이트는 점검·장애가 잦다. 재시도 없이 한 번 실패를 사건으로 기록하면
+ * 검토 큐가 헛경보로 차고, 그러면 아무도 큐를 보지 않게 된다.
+ */
+const ATTEMPTS = 3
+
 async function fetchText(url) {
-  const res = await fetch(url, {
-    headers: { 'user-agent': 'settle-quest-source-check/0.1 (+rules freshness batch)' },
-    redirect: 'follow',
-    // 응답이 없을 때 무한정 기다리지 않는다. 기다리다 죽으면 원인을 못 남긴다.
-    signal: AbortSignal.timeout(30_000),
-  })
-  if (!res.ok) throw new Error(`HTTP ${res.status}`)
-  return await res.text()
+  let lastError
+  for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { 'user-agent': 'settle-quest-source-check/0.1 (+rules freshness batch)' },
+        redirect: 'follow',
+        // 응답이 없을 때 무한정 기다리지 않는다. 기다리다 죽으면 원인을 못 남긴다.
+        signal: AbortSignal.timeout(30_000),
+      })
+      // 5xx 는 서버가 잠시 힘든 것일 수 있으니 다시 물어본다. 4xx 는 다시 물어도 같다.
+      if (res.status >= 500) throw new Error(`HTTP ${res.status}`)
+      if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status}`), { noRetry: true })
+      return await res.text()
+    } catch (e) {
+      lastError = e
+      if (e.noRetry || attempt === ATTEMPTS) break
+      await new Promise((r) => setTimeout(r, 2000 * attempt))
+    }
+  }
+  throw lastError
 }
 
 const results = []
@@ -135,8 +157,8 @@ for (const file of readdirSync(rulesDir).filter((f) => f.endsWith('.yaml')).sort
 
 const by = (state) => results.filter((r) => r.state === state)
 const needsReview = [...by('changed'), ...by('unreachable')]
-// 전부 못 읽었다면 원문 문제가 아니라 실행 환경 문제다. 한국 공공기관 사이트는
-// 해외 데이터센터 IP(GitHub Actions 등)를 막는다. 실제로 첫 실행에서 12건 전부 막혔다.
+// 전부 못 읽었다면 개별 원문 문제가 아니라 네트워크나 실행 환경 문제로 본다.
+// 재시도까지 하고도 전부 실패했다면 출처 12곳이 동시에 바뀐 것보다 이쪽이 훨씬 그럴듯하다.
 const environmentFailure = results.length > 0 && by('unreachable').length === results.length
 
 const lines = [
@@ -150,8 +172,8 @@ const lines = [
 
 if (environmentFailure) {
   lines.push(
-    '**이 실행 환경에서는 출처에 하나도 접속하지 못했습니다.** 원문이 바뀐 것이 아니라 네트워크 문제입니다.',
-    '한국 공공기관 사이트는 해외 IP를 막는 경우가 많습니다. 한국 IP에서 `npm run rules:check` 를 실행하십시오.',
+    '**출처에 하나도 접속하지 못했습니다.** 원문이 바뀐 것이 아니라 네트워크 또는 실행 환경 문제입니다.',
+    '`node scripts/diagnose-sources.mjs` 로 DNS·TLS·HTTP 중 어디서 막히는지 확인하십시오.',
     '',
     `첫 번째 오류: ${by('unreachable')[0].error}`,
   )
@@ -183,7 +205,7 @@ console.log(`검토 큐 → ${queuePath.replace(root + '/', '')}`)
 
 // 0: 이상 없음 · 1: 사람이 볼 것이 있음 · 2: 실행 환경이 출처에 닿지 못함
 if (environmentFailure) {
-  console.error('✗ 출처에 하나도 접속하지 못했습니다. 실행 환경의 네트워크를 확인하십시오 (해외 IP 차단 추정).')
+  console.error('✗ 출처에 하나도 접속하지 못했습니다. node scripts/diagnose-sources.mjs 로 원인을 확인하십시오.')
   process.exit(2)
 }
 process.exit(needsReview.length > 0 ? 1 : 0)
