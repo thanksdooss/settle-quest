@@ -70,10 +70,27 @@ export function patchSource(text, sourceId, fields) {
   return { text: [...lines.slice(0, start), ...block, ...lines.slice(end)].join('\n'), patched: true }
 }
 
+/**
+ * 오류의 진짜 원인까지 펼친다. fetch 는 DNS 실패도, TLS 실패도, 연결 거부도
+ * 전부 "fetch failed" 한 줄로 덮고 진짜 원인을 cause 에 숨긴다.
+ * 이걸 버리면 검토 큐에 "못 읽음"만 남아 원인을 영영 알 수 없다.
+ */
+export function explain(error) {
+  const parts = []
+  let e = error
+  while (e) {
+    parts.push([e.code, e.message].filter(Boolean).join(' '))
+    e = e.cause
+  }
+  return parts.join(' ← ')
+}
+
 async function fetchText(url) {
   const res = await fetch(url, {
     headers: { 'user-agent': 'settle-quest-source-check/0.1 (+rules freshness batch)' },
     redirect: 'follow',
+    // 응답이 없을 때 무한정 기다리지 않는다. 기다리다 죽으면 원인을 못 남긴다.
+    signal: AbortSignal.timeout(30_000),
   })
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
   return await res.text()
@@ -108,7 +125,7 @@ for (const file of readdirSync(rulesDir).filter((f) => f.endsWith('.yaml')).sort
       // "원문 변경됨"이라는 사실이 아닌 말이 뜬다. 그래서 규칙 데이터는 건드리지 않고
       // 검토 큐에만 올린다. 아무도 확인하지 않으면 next_check_on 이 지나 저절로 "확인 필요"가 된다.
       entry.state = 'unreachable'
-      entry.error = e.message
+      entry.error = explain(e)
     }
     results.push(entry)
   }

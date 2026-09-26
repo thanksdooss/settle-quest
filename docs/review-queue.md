@@ -1,6 +1,6 @@
 # 원문 변경 검토 큐
 
-자동 생성 — 2026-09-21. `node scripts/check-sources.mjs --write` 가 만든다.
+자동 생성 — 2026-09-26. `node scripts/check-sources.mjs --write` 가 만든다.
 
 출처 12건 · 변경 0 · 접근 불가 0 · 동일 12 · 최초 기록 0
 
