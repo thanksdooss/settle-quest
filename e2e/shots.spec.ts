@@ -26,4 +26,13 @@ test('화면 캡처', async ({ page }) => {
 
   await page.getByRole('link', { name: '지원 창구' }).click()
   await page.screenshot({ path: `${OUT}/06-support.png`, fullPage: true })
+
+  await page.getByRole('link', { name: '물어보기' }).click()
+  await page.getByRole('textbox', { name: '물어보기' }).fill('알바하려면 허가 받아야 하나요')
+  await page.getByRole('button', { name: '찾기' }).click()
+  await page.screenshot({ path: `${OUT}/07-ask.png`, fullPage: true })
+
+  await page.getByRole('textbox', { name: '물어보기' }).fill('집주인이 보증금을 안 돌려줘요 소송하려면')
+  await page.getByRole('button', { name: '찾기' }).click()
+  await page.screenshot({ path: `${OUT}/08-ask-uncertain.png`, fullPage: true })
 })

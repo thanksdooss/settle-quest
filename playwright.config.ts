@@ -2,8 +2,9 @@ import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   testDir: './e2e',
-  // 화면 캡처는 결과물 생성용이라 기본 실행에서 뺀다: npx playwright test e2e/shots.spec.ts
-  testIgnore: ['**/shots.spec.ts'],
+  // 화면 캡처는 결과물 생성용이라 기본 실행에서 뺀다.
+  // 캡처가 필요할 때만: SHOTS=1 npx playwright test e2e/shots.spec.ts
+  testIgnore: process.env.SHOTS ? [] : ['**/shots.spec.ts'],
   use: { baseURL: 'http://localhost:4173', locale: 'ko-KR' },
   projects: [{ name: 'mobile', use: { ...devices['Pixel 7'] } }],
   webServer: {
