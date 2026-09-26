@@ -1,0 +1,25 @@
+# 출처에 접속하지 못하는 원인을 실행 환경에서 확인한다. 수동 실행 전용.
+name: 출처 접속 진단
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: 러너 위치
+        run: curl -s --max-time 15 https://ipinfo.io/json || echo "ipinfo 실패"
+      - name: 상세 진단
+        run: node scripts/diagnose-sources.mjs
+      - name: curl 로 재확인 (Node 외의 경로)
+        run: |
+          for h in www.hikorea.go.kr www.easylaw.go.kr www.gov.kr; do
+            echo "--- $h"
+            curl -sS -o /dev/null -w "code=%{http_code} time=%{time_total}s\n" --max-time 25 "https://$h/" || echo "curl 실패 ($?)"
+          done
