@@ -74,4 +74,5 @@ sources:
     checked_by: maintainer
     checked_on: 2026-09-21
     next_check_on: 2026-12-20
-    content_hash: sha256:32534684670963cf16ea800ffb21fc2f
+    content_hash: sha256:c31358c97202c1aa948b69e978c6929b
+    changed_at: 2026-10-12

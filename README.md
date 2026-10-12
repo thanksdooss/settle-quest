@@ -5,7 +5,7 @@
 
 **데모:** https://thanksdooss.github.io/settle-quest/
 
-![규칙 검토 커버리지](https://img.shields.io/badge/90일_이내_확인-100%25-brightgreen)
+![규칙 검토 커버리지](https://img.shields.io/badge/90일_이내_확인-58%25-orange)
 
 > **행정 정보 안내이며 법적 효력이 없습니다.** 이 저장소는 공개된 공공 자료를 정리한 것입니다.
 > 개인의 상황에 대한 판단을 대신하지 않습니다. 실제 신청 전에 관할 기관이나 외국인 종합안내센터(1345)에 확인하십시오.
