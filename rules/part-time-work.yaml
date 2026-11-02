@@ -72,8 +72,8 @@ sources:
     checked_by: maintainer
     checked_on: 2026-09-21
     next_check_on: 2026-12-20
-    content_hash: sha256:44f72bd54afd92bcb9d68c9db9fa2b58
-    changed_at: 2026-10-26
+    content_hash: sha256:410a689fcc2cd3117bc00d22c36fe5d3
+    changed_at: 2026-11-02
   - id: hikorea-187
     publisher: 법무부 하이코리아
     title: 체류자격외활동허가 절차/방법
